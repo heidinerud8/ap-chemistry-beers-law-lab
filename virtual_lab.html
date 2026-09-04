@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beer's Law Virtual Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .control-panel {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border: 2px solid #e9ecef;
+        }
+
+        .control-panel h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .control-group {
+            margin-bottom: 25px;
+        }
+
+        .control-group label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .control-group input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #ddd;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .control-group input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .control-group input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border: none;
+        }
+
+        .value-display {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 8px;
+            border-left: 4px solid #667eea;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .simulation-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cuvette-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border: 2px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 350px;
+        }
+
+        .cuvette {
+            position: relative;
+            width: 120px;
+            height: 250px;
+            border: 3px solid #333;
+            background: linear-gradient(90deg, rgba(255,255,255,0.2), rgba(0,0,0,0.1));
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .liquid {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0%;
+            transition: background-color 0.3s ease, height 0.3s ease;
+            background: rgba(100, 150, 255, 0.6);
+            border-radius: 5px;
+        }
+
+        .light-beam {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+
+        .results-panel {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+        }
+
+        .results-panel h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .result-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid #764ba2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .result-value {
+            background: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+            color: #667eea;
+            font-size: 1.1em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .formula-box {
+            background: #e7f3ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .formula-box strong {
+            color: #667eea;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+
+        .btn-reset {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-reset:hover {
+            background: #5568d3;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-copy {
+            background: #764ba2;
+            color: white;
+        }
+
+        .btn-copy:hover {
+            background: #653a82;
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+        }
+
+        .wavelength-info {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .color-indicator {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 10px auto;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .instructions {
+            background: #e7f3ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .instructions h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+        }
+
+        .instructions li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧪 Beer's Law Virtual Lab</h1>
+            <p>Interactive Spectrophotometry Simulation</p>
+        </header>
+
+        <div class="content">
+            <!-- Control Panel -->
+            <div>
+                <div class="instructions">
+                    <h3>📋 Lab Instructions</h3>
+                    <ol>
+                        <li>Adjust the <strong>Concentration</strong> slider to change solution strength</li>
+                        <li>Select a <strong>Wavelength</strong> to see color changes</li>
+                        <li>Change the <strong>Path Length</strong> to see how light path affects absorbance</li>
+                        <li>Observe how these variables affect <strong>Absorbance</strong></li>
+                        <li>Record your observations in the worksheet</li>
+                    </ol>
+                </div>
+
+                <div class="control-panel">
+                    <h2>⚙️ Experimental Controls</h2>
+
+                    <div class="control-group">
+                        <label for="concentration">Concentration (M)</label>
+                        <input type="range" id="concentration" min="0.00001" max="0.001" step="0.00001" value="0.0001">
+                        <div class="value-display" id="concentrationDisplay">0.0001 M</div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="wavelength">Wavelength (nm)</label>
+                        <select id="wavelength" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; font-size: 1em;">
+                            <option value="405">405 nm - Violet</option>
+                            <option value="450">450 nm - Blue</option>
+                            <option value="525">525 nm - Green</option>
+                            <option value="600">600 nm - Red</option>
+                        </select>
+                        <div class="color-indicator" id="colorIndicator"></div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="pathLength">Path Length (cm)</label>
+                        <input type="range" id="pathLength" min="0.1" max="5" step="0.1" value="1.0">
+                        <div class="value-display" id="pathLengthDisplay">1.0 cm</div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="epsilon">Molar Absorptivity ε (L·mol⁻¹·cm⁻¹)</label>
+                        <select id="epsilon" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; font-size: 1em;">
+                            <option value="2600">2,600 (KMnO₄ @ 525 nm)</option>
+                            <option value="7000">7,000 (Fe³⁺-SCN @ 480 nm)</option>
+                            <option value="8500">8,500 (Blue Dye @ 600 nm)</option>
+                            <option value="35300">35,300 (Vitamin B₁₂ @ 361 nm)</option>
+                        </select>
+                    </div>
+
+                    <div class="formula-box">
+                        <strong>Beer's Law:</strong><br>
+                        A = ε × b × c<br><br>
+                        A = Absorbance<br>
+                        ε = Molar Absorptivity<br>
+                        b = Path Length<br>
+                        c = Concentration
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn-reset" onclick="resetSimulation()">🔄 Reset</button>
+                        <button class="btn-copy" onclick="copyData()">📋 Copy Data</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simulation Panel -->
+            <div class="simulation-panel">
+                <div class="cuvette-container">
+                    <div class="cuvette">
+                        <div class="light-beam"></div>
+                        <div class="liquid" id="liquidLevel"></div>
+                    </div>
+                    <div class="wavelength-info" id="wavelengthInfo">405 nm - Violet Light</div>
+                </div>
+
+                <div class="results-panel">
+                    <h3>📊 Measurements</h3>
+                    <div class="result-item">
+                        <span class="result-label">Absorbance (A)</span>
+                        <span class="result-value" id="absorbanceResult">0.000</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Transmittance (%T)</span>
+                        <span class="result-value" id="transmittanceResult">100.0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Molar Absorptivity</span>
+                        <span class="result-value" id="epsilonDisplay">2,600</span>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>⚠️ Note:</strong> The absorbance value should ideally be between 0.0 and 1.0 for accurate measurements. Values above 1.0 indicate the solution is too concentrated.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>AP Chemistry Virtual Lab | Beer's Law Simulator | © 2024</p>
+            <p>Use this tool to explore the relationship between concentration, light path, and absorbance.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Color mapping for wavelengths
+        const wavelengthColors = {
+            '405': 'rgb(138, 43, 226)',    // Violet
+            '450': 'rgb(0, 0, 255)',        // Blue
+            '525': 'rgb(34, 139, 34)',      // Green
+            '600': 'rgb(255, 0, 0)'         // Red
+        };
+
+        const wavelengthNames = {
+            '405': '405 nm - Violet',
+            '450': '450 nm - Blue',
+            '525': '525 nm - Green',
+            '600': '600 nm - Red'
+        };
+
+        const epsilonValues = {
+            '2600': '2,600',
+            '7000': '7,000',
+            '8500': '8,500',
+            '35300': '35,300'
+        };
+
+        // Get elements
+        const concentrationSlider = document.getElementById('concentration');
+        const wavelengthSelect = document.getElementById('wavelength');
+        const pathLengthSlider = document.getElementById('pathLength');
+        const epsilonSelect = document.getElementById('epsilon');
+
+        const concentrationDisplay = document.getElementById('concentrationDisplay');
+        const pathLengthDisplay = document.getElementById('pathLengthDisplay');
+        const liquidLevel = document.getElementById('liquidLevel');
+        const colorIndicator = document.getElementById('colorIndicator');
+        const wavelengthInfo = document.getElementById('wavelengthInfo');
+
+        const absorbanceResult = document.getElementById('absorbanceResult');
+        const transmittanceResult = document.getElementById('transmittanceResult');
+        const epsilonDisplay = document.getElementById('epsilonDisplay');
+
+        // Event listeners
+        concentrationSlider.addEventListener('input', updateSimulation);
+        wavelengthSelect.addEventListener('change', updateSimulation);
+        pathLengthSlider.addEventListener('input', updateSimulation);
+        epsilonSelect.addEventListener('change', updateSimulation);
+
+        function updateSimulation() {
+            // Get values
+            const concentration = parseFloat(concentrationSlider.value);
+            const wavelength = wavelengthSelect.value;
+            const pathLength = parseFloat(pathLengthSlider.value);
+            const epsilon = parseFloat(epsilonSelect.value);
+
+            // Update displays
+            concentrationDisplay.textContent = concentration.toExponential(2) + ' M';
+            pathLengthDisplay.textContent = pathLength.toFixed(1) + ' cm';
+            wavelengthInfo.textContent = wavelengthNames[wavelength];
+
+            // Calculate absorbance using Beer's Law: A = ε × b × c
+            const absorbance = epsilon * pathLength * concentration;
+
+            // Calculate transmittance: T = 10^(-A), then convert to %
+            const transmittance = Math.pow(10, -absorbance) * 100;
+
+            // Update liquid level (proportional to concentration, max 90%)
+            const maxConc = 0.001;
+            const liquidHeight = Math.min((concentration / maxConc) * 90, 90);
+            liquidLevel.style.height = liquidHeight + '%';
+
+            // Update liquid color based on wavelength
+            const rgbColor = wavelengthColors[wavelength];
+            const rgbArray = rgbColor.match(/\d+/g);
+            const opacity = Math.min(concentration / 0.001, 0.8);
+            liquidLevel.style.backgroundColor = `rgba(${rgbArray[0]}, ${rgbArray[1]}, ${rgbArray[2]}, ${opacity})`;
+
+            // Update color indicator
+            colorIndicator.style.backgroundColor = wavelengthColors[wavelength];
+
+            // Update results
+            absorbanceResult.textContent = absorbance.toFixed(3);
+            transmittanceResult.textContent = transmittance.toFixed(1);
+            epsilonDisplay.textContent = epsilonValues[epsilon.toString()];
+
+            // Change result color based on absorbance value
+            if (absorbance > 1.0) {
+                absorbanceResult.style.color = '#ff6b6b'; // Red for out of range
+            } else if (absorbance < 0.0) {
+                absorbanceResult.style.color = '#ffa500'; // Orange for very low
+            } else {
+                absorbanceResult.style.color = '#667eea'; // Normal color
+            }
+        }
+
+        function resetSimulation() {
+            concentrationSlider.value = 0.0001;
+            wavelengthSelect.value = '405';
+            pathLengthSlider.value = 1.0;
+            epsilonSelect.value = '2600';
+            updateSimulation();
+        }
+
+        function copyData() {
+            const concentration = parseFloat(concentrationSlider.value).toExponential(2);
+            const wavelength = wavelengthSelect.value;
+            const pathLength = parseFloat(pathLengthSlider.value).toFixed(1);
+            const epsilon = epsilonSelect.value;
+            const absorbance = parseFloat(absorbanceResult.textContent);
+            const transmittance = parseFloat(transmittanceResult.textContent);
+
+            const data = `Beer's Law Lab Data
+================================
+Wavelength: ${wavelength} nm
+Concentration: ${concentration} M
+Path Length: ${pathLength} cm
+Molar Absorptivity (ε): ${epsilon} L·mol⁻¹·cm⁻¹
+
+Results:
+Absorbance (A): ${absorbance.toFixed(3)}
+Transmittance (%T): ${transmittance.toFixed(1)}%
+
+Formula: A = ε × b × c
+A = ${epsilon} × ${pathLength} × ${concentration}
+A = ${absorbance.toFixed(3)}
+`;
+
+            navigator.clipboard.writeText(data).then(() => {
+                alert('Data copied to clipboard!');
+            }).catch(() => {
+                alert('Failed to copy data');
+            });
+        }
+
+        // Initialize simulation on page load
+        window.addEventListener('load', updateSimulation);
+    </script>
+</body>
+</html>
