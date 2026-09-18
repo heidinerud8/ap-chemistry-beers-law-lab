@@ -6,7 +6,7 @@ Interactive AP Chemistry Beer's Law virtual lab assignment with printable worksh
 Generate the printable worksheet PDF from Markdown:
 
 ```bash
-bash /home/runner/work/ap-chemistry-beers-law-lab/ap-chemistry-beers-law-lab/worksheets/generate-emission-spectra-assignment-pdf.sh
+bash worksheets/generate-emission-spectra-assignment-pdf.sh
 ```
 
 Required tools:
