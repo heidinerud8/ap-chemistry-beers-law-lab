@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>General Chemistry Practice: Density Graphs and Line Equations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 24px;
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #dbe3ee;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 30px;
+    }
+    h1, h2, h3 {
+      color: #111827;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      font-size: 2em;
+    }
+    h2 {
+      border-bottom: 2px solid #dfe7f1;
+      padding-bottom: 6px;
+      margin-top: 32px;
+    }
+    p, li {
+      line-height: 1.5;
+      font-size: 1rem;
+    }
+    .section {
+      margin-bottom: 28px;
+    }
+    .box {
+      background: #f8fafc;
+      border: 1px solid #dfe7f1;
+      padding: 14px 16px;
+      margin: 16px 0;
+    }
+    .answer-space {
+      border-bottom: 1px solid #111827;
+      min-height: 22px;
+      display: inline-block;
+      width: 180px;
+      vertical-align: bottom;
+      margin-left: 8px;
+    }
+    .label {
+      font-weight: bold;
+    }
+    svg {
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      display: block;
+      margin: 14px auto;
+      background: white;
+      border: 1px solid #dbe3ee;
+    }
+    .worksheet-grid {
+      display: grid;
+      gap: 18px;
+    }
+    .answer-key {
+      background: #eef6ee;
+      border: 1px solid #cfe6cf;
+      padding: 16px;
+      margin-top: 28px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 8px 10px;
+      text-align: center;
+    }
+    @media print {
+      body {
+        background: white;
+      }
+      .container {
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>General Chemistry Practice: Density Graphs and Line Equations</h1>
+
+    <div class="box">
+      <p><span class="label">Directions:</span> For a mass vs. volume graph, the slope represents density. For a graph of volume in mL vs. volume in cm³, the slope is 1 because 1 cm³ = 1 mL. For linear equations, use y = mx + b, where the slope is the density when y is mass and x is volume.</p>
+    </div>
+
+    <div class="section">
+      <h2>Part A: Density from Mass–Volume Graphs</h2>
+
+      <h3>1. Compare Two Substances</h3>
+      <p>Use the graph below to answer the questions.</p>
+      <svg viewBox="0 0 620 360" aria-label="Mass versus volume graph for two substances">
+        <rect x="0" y="0" width="620" height="360" fill="#ffffff"/>
+        <g stroke="#cbd5e1" stroke-width="1">
+          <line x1="70" y1="300" x2="560" y2="300"/>
+          <line x1="70" y1="260" x2="560" y2="260"/>
+          <line x1="70" y1="220" x2="560" y2="220"/>
+          <line x1="70" y1="180" x2="560" y2="180"/>
+          <line x1="70" y1="140" x2="560" y2="140"/>
+          <line x1="70" y1="100" x2="560" y2="100"/>
+          <line x1="70" y1="60" x2="560" y2="60"/>
+          <line x1="70" y1="300" x2="70" y2="40"/>
+          <line x1="150" y1="300" x2="150" y2="40"/>
+          <line x1="230" y1="300" x2="230" y2="40"/>
+          <line x1="310" y1="300" x2="310" y2="40"/>
+          <line x1="390" y1="300" x2="390" y2="40"/>
+          <line x1="470" y1="300" x2="470" y2="40"/>
+          <line x1="550" y1="300" x2="550" y2="40"/>
+        </g>
+        <g stroke="#111827" stroke-width="2">
+          <line x1="70" y1="300" x2="570" y2="300"/>
+          <line x1="70" y1="300" x2="70" y2="40"/>
+        </g>
+        <g font-size="12" font-family="Arial">
+          <text x="66" y="316">0</text>
+          <text x="142" y="316">5</text>
+          <text x="222" y="316">10</text>
+          <text x="302" y="316">15</text>
+          <text x="382" y="316">20</text>
+          <text x="462" y="316">25</text>
+          <text x="542" y="316">30</text>
+          <text x="44" y="305">0</text>
+          <text x="38" y="265">10</text>
+          <text x="38" y="225">20</text>
+          <text x="38" y="185">30</text>
+          <text x="38" y="145">40</text>
+          <text x="38" y="105">50</text>
+          <text x="38" y="65">60</text>
+          <text x="260" y="342">Volume (mL)</text>
+          <text transform="translate(18,200) rotate(-90)">Mass (g)</text>
+        </g>
+        <line x1="70" y1="300" x2="310" y2="60" stroke="#1d4ed8" stroke-width="3"/>
+        <line x1="70" y1="300" x2="550" y2="180" stroke="#dc2626" stroke-width="3"/>
+        <text x="320" y="75" fill="#1d4ed8" font-size="13">Substance A</text>
+        <text x="430" y="185" fill="#dc2626" font-size="13">Substance B</text>
+      </svg>
+
+      <p>a. Density of Substance A = <span class="answer-space"></span></p>
+      <p>b. Density of Substance B = <span class="answer-space"></span></p>
+      <p>c. Which substance is more dense? Explain. <span class="answer-space" style="width: 240px;"></span></p>
+      <p>d. What is the mass of a 20.0 mL sample of Substance A? <span class="answer-space"></span></p>
+    </div>
+
+    <div class="section">
+      <h3>2. Unknown Liquid</h3>
+      <p>The mass of an unknown liquid is plotted against volume.</p>
+      <svg viewBox="0 0 620 360" aria-label="Mass versus volume graph for an unknown liquid">
+        <rect x="0" y="0" width="620" height="360" fill="#ffffff"/>
+        <g stroke="#cbd5e1" stroke-width="1">
+          <line x1="70" y1="300" x2="560" y2="300"/>
+          <line x1="70" y1="260" x2="560" y2="260"/>
+          <line x1="70" y1="220" x2="560" y2="220"/>
+          <line x1="70" y1="180" x2="560" y2="180"/>
+          <line x1="70" y1="140" x2="560" y2="140"/>
+          <line x1="70" y1="100" x2="560" y2="100"/>
+          <line x1="70" y1="60" x2="560" y2="60"/>
+          <line x1="70" y1="300" x2="70" y2="40"/>
+          <line x1="150" y1="300" x2="150" y2="40"/>
+          <line x1="230" y1="300" x2="230" y2="40"/>
+          <line x1="310" y1="300" x2="310" y2="40"/>
+          <line x1="390" y1="300" x2="390" y2="40"/>
+          <line x1="470" y1="300" x2="470" y2="40"/>
+          <line x1="550" y1="300" x2="550" y2="40"/>
+        </g>
+        <g stroke="#111827" stroke-width="2">
+          <line x1="70" y1="300" x2="570" y2="300"/>
+          <line x1="70" y1="300" x2="70" y2="40"/>
+        </g>
+        <g font-size="12" font-family="Arial">
+          <text x="66" y="316">0</text>
+          <text x="142" y="316">5</text>
+          <text x="222" y="316">10</text>
+          <text x="302" y="316">15</text>
+          <text x="382" y="316">20</text>
+          <text x="462" y="316">25</text>
+          <text x="542" y="316">30</text>
+          <text x="44" y="305">0</text>
+          <text x="38" y="265">10</text>
+          <text x="38" y="225">20</text>
+          <text x="38" y="185">30</text>
+          <text x="38" y="145">40</text>
+          <text x="38" y="105">50</text>
+          <text x="38" y="65">60</text>
+          <text x="260" y="342">Volume (mL)</text>
+          <text transform="translate(18,200) rotate(-90)">Mass (g)</text>
+        </g>
+        <line x1="70" y1="300" x2="430" y2="88" stroke="#0f766e" stroke-width="3"/>
+        <text x="300" y="80" fill="#0f766e" font-size="13">Unknown liquid</text>
+      </svg>
+
+      <p>a. Density of unknown liquid = <span class="answer-space"></span></p>
+      <p>b. Would this liquid float or sink in water? Explain. <span class="answer-space" style="width: 260px;"></span></p>
+      <p>c. What mass does 12.0 mL of the liquid have? <span class="answer-space"></span></p>
+    </div>
+
+    <div class="section">
+      <h2>Part B: cm³ vs. mL</h2>
+      <p>Remember: <strong>1 cm³ = 1 mL</strong>.</p>
+
+      <svg viewBox="0 0 620 360" aria-label="Volume conversion graph from milliliters to cubic centimeters">
+        <rect x="0" y="0" width="620" height="360" fill="#ffffff"/>
+        <g stroke="#cbd5e1" stroke-width="1">
+          <line x1="70" y1="300" x2="560" y2="300"/>
+          <line x1="70" y1="260" x2="560" y2="260"/>
+          <line x1="70" y1="220" x2="560" y2="220"/>
+          <line x1="70" y1="180" x2="560" y2="180"/>
+          <line x1="70" y1="140" x2="560" y2="140"/>
+          <line x1="70" y1="100" x2="560" y2="100"/>
+          <line x1="70" y1="60" x2="560" y2="60"/>
+          <line x1="70" y1="300" x2="70" y2="40"/>
+          <line x1="150" y1="300" x2="150" y2="40"/>
+          <line x1="230" y1="300" x2="230" y2="40"/>
+          <line x1="310" y1="300" x2="310" y2="40"/>
+          <line x1="390" y1="300" x2="390" y2="40"/>
+          <line x1="470" y1="300" x2="470" y2="40"/>
+          <line x1="550" y1="300" x2="550" y2="40"/>
+        </g>
+        <g stroke="#111827" stroke-width="2">
+          <line x1="70" y1="300" x2="570" y2="300"/>
+          <line x1="70" y1="300" x2="70" y2="40"/>
+        </g>
+        <g font-size="12" font-family="Arial">
+          <text x="66" y="316">0</text>
+          <text x="142" y="316">5</text>
+          <text x="222" y="316">10</text>
+          <text x="302" y="316">15</text>
+          <text x="382" y="316">20</text>
+          <text x="462" y="316">25</text>
+          <text x="542" y="316">30</text>
+          <text x="44" y="305">0</text>
+          <text x="38" y="265">10</text>
+          <text x="38" y="225">20</text>
+          <text x="38" y="185">30</text>
+          <text x="38" y="145">40</text>
+          <text x="38" y="105">50</text>
+          <text x="38" y="65">60</text>
+          <text x="260" y="342">Volume (mL)</text>
+          <text transform="translate(18,200) rotate(-90)">Volume (cm³)</text>
+        </g>
+        <line x1="70" y1="300" x2="550" y2="50" stroke="#111827" stroke-width="3"/>
+        <text x="290" y="98" font-size="13">y = x</text>
+      </svg>
+
+      <p>a. 18.0 mL = <span class="answer-space"></span> cm³</p>
+      <p>b. 42.5 cm³ = <span class="answer-space"></span> mL</p>
+      <p>c. What is the slope of this graph? <span class="answer-space"></span></p>
+      <p>d. Why does the line pass through the origin? <span class="answer-space" style="width: 260px;"></span></p>
+    </div>
+
+    <div class="section">
+      <h2>Part C: Using Linear Equations to Solve for Mass or Volume</h2>
+
+      <h3>3. Density equation</h3>
+      <p>A sample of aluminum has the mass–volume equation:</p>
+      <p style="text-align:center; font-weight:bold; font-size:1.1em;">m = 2.70V</p>
+      <p>where m is mass in grams and V is volume in mL.</p>
+
+      <p>a. What is the density? <span class="answer-space"></span></p>
+      <p>b. What is the mass of 15.0 mL? <span class="answer-space"></span></p>
+      <p>c. What volume has a mass of 81.0 g? <span class="answer-space"></span></p>
+
+      <h3>4. Nonzero intercept</h3>
+      <p>A student obtains the equation:</p>
+      <p style="text-align:center; font-weight:bold; font-size:1.1em;">m_total = 0.92V + 18.5</p>
+      <p>where m_total is total mass in grams and V is liquid volume in mL.</p>
+
+      <p>a. What does the slope represent? <span class="answer-space" style="width: 260px;"></span></p>
+      <p>b. What does the y-intercept represent? <span class="answer-space" style="width: 260px;"></span></p>
+      <p>c. What is the total mass when V = 25.0 mL? <span class="answer-space"></span></p>
+      <p>d. If the total mass is 64.5 g, what is the liquid volume? <span class="answer-space"></span></p>
+    </div>
+
+    <div class="answer-key">
+      <h2>Answer Key</h2>
+      <p><strong>1a.</strong> 2.0 g/mL</p>
+      <p><strong>1b.</strong> 1.0 g/mL</p>
+      <p><strong>1c.</strong> Substance A is more dense because it has the steeper slope.</p>
+      <p><strong>1d.</strong> 40.0 g</p>
+      <p><strong>2a.</strong> 1.60 g/mL</p>
+      <p><strong>2b.</strong> It would sink in water because 1.60 g/mL > 1.00 g/mL.</p>
+      <p><strong>2c.</strong> 19.2 g</p>
+      <p><strong>3a.</strong> 18.0 cm³</p>
+      <p><strong>3b.</strong> 42.5 mL</p>
+      <p><strong>3c.</strong> 1.0 cm³/mL</p>
+      <p><strong>3d.</strong> 0 mL = 0 cm³, so the line passes through the origin.</p>
+      <p><strong>4a.</strong> 40.5 g</p>
+      <p><strong>4b.</strong> 30.0 mL</p>
+      <p><strong>4c.</strong> Density = 2.70 g/mL</p>
+      <p><strong>4d.</strong> 0.92 g/mL (density of the liquid); the y-intercept is the mass of the container.</p>
+      <p><strong>5a.</strong> 0.92 g/mL</p>
+      <p><strong>5b.</strong> 18.5 g (mass of the empty container)</p>
+      <p><strong>5c.</strong> 41.5 g</p>
+      <p><strong>5d.</strong> 50.0 mL</p>
+    </div>
+  </div>
+</body>
+</html>
