@@ -1,5 +1,5 @@
-# ap-chemistry-beers-law-lab
-Interactive AP Chemistry Beer's Law virtual lab assignment with printable worksheet and web-based simulation
+# regular chemistry practice
+practice worksheets for regular chemistry
 
 ## General Chemistry Practice
 - [General Chemistry Practice: Density Graphs and Line Equations](./general-chemistry-practice.html) — printable review on density graphs, cm³ vs. mL, and solving mass/volume with linear equations.
