@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AP Chemistry Assignment: Atomic Structure, Emission Spectra, and Precipitation Reactions</title>
+  <style>
+    :root {
+      --text: #111;
+      --muted: #555;
+      --line: #222;
+      --border: #888;
+      --light: #f4f4f4;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.4;
+      background: #fff;
+    }
+
+    main {
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.6in;
+    }
+
+    h1, h2, h3 { margin: 0.9rem 0 0.45rem; }
+    h1 { font-size: 1.45rem; }
+    h2 { font-size: 1.2rem; border-top: 2px solid var(--line); padding-top: 0.6rem; }
+    h3 { font-size: 1.05rem; }
+    p { margin: 0.45rem 0; }
+    ul { margin: 0.35rem 0 0.35rem 1.2rem; }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+      margin: 0.5rem 0 0.75rem;
+    }
+
+    .blank-inline {
+      display: inline-block;
+      min-width: 220px;
+      border: 0;
+      border-bottom: 1px solid #000;
+      border-radius: 0;
+      background: transparent;
+      padding: 0;
+      height: 1em;
+      vertical-align: baseline;
+      font: inherit;
+    }
+
+    .answer-line {
+      border-bottom: 1px solid #000;
+      min-height: 1.1rem;
+      margin: 0.2rem 0 0.25rem;
+    }
+
+    .work-area .answer-line { min-height: 1.25rem; }
+
+    .equations {
+      background: var(--light);
+      border: 1px solid var(--border);
+      padding: 0.55rem 0.7rem;
+    }
+
+    .equation {
+      margin: 0.3rem 0;
+      font-family: "Times New Roman", Georgia, serif;
+      text-align: center;
+      font-size: 1.03rem;
+    }
+
+    .spectrum {
+      border: 1px solid var(--border);
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      background: #fff;
+    }
+
+    svg { width: 100%; height: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.45rem 0;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.45rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .teacher-key {
+      background: #fafafa;
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+    }
+
+    .teacher-key ol { margin: 0.25rem 0 0.25rem 1.2rem; }
+    .teacher-key li { margin: 0.28rem 0; }
+
+    .page-break { break-before: page; page-break-before: always; }
+
+    @media print {
+      body { background: #fff; }
+      main { max-width: none; width: 100%; margin: 0; padding: 0.45in; }
+      .page-break { break-before: page; page-break-before: always; }
+      h2, h3 { break-after: avoid; page-break-after: avoid; }
+      .spectrum, table, .equations { break-inside: avoid; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AP Chemistry Assignment: Atomic Structure, Emission Spectra, and Precipitation Reactions</h1>
+      <div class="meta">
+        <p><label for="student-name"><strong>Name:</strong></label> <input id="student-name" type="text" class="blank-inline" aria-label="Name"></p>
+        <p><label for="student-date"><strong>Date:</strong></label> <input id="student-date" type="text" class="blank-inline" aria-label="Date"></p>
+        <p><label for="class-period"><strong>Class Period:</strong></label> <input id="class-period" type="text" class="blank-inline" aria-label="Class period"></p>
+      </div>
+    </header>
+
+    <section>
+      <h2>Directions</h2>
+      <ul>
+        <li>Show all work for calculations.</li>
+        <li>Include units and appropriate significant figures.</li>
+        <li>For net ionic equations, include physical states.</li>
+        <li>Use the following equations as needed:</li>
+      </ul>
+      <div class="equations" aria-label="Reference equations and constants">
+        <p class="equation"><em>E</em><sub>n</sub> = &minus;(2.18 &times; 10<sup>&minus;18</sup> J) / <em>n</em><sup>2</sup></p>
+        <p class="equation">&Delta;<em>E</em> = <em>E</em><sub>final</sub> &minus; <em>E</em><sub>initial</sub></p>
+        <p class="equation"><em>c</em> = &lambda;&nu;</p>
+        <p class="equation"><em>E</em> = <em>h</em>&nu; = (<em>hc</em>) / &lambda;</p>
+        <p class="equation">where <em>c</em> = 3.00 &times; 10<sup>8</sup> m/s and <em>h</em> = 6.626 &times; 10<sup>&minus;34</sup> J&middot;s</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Part I: Bohr Model and Electron Transitions</h2>
+
+      <h3>1. Comparative Energy Levels</h3>
+      <p>In the Bohr model of the hydrogen atom, the energy required to excite an electron from <em>n</em>=2 to <em>n</em>=3 is:</p>
+      <p>A. Less than the energy required to excite an electron from <em>n</em>=3 to <em>n</em>=4<br>
+         B. Equal to the energy required to excite an electron from <em>n</em>=3 to <em>n</em>=4<br>
+         C. Greater than the energy required to excite an electron from <em>n</em>=3 to <em>n</em>=4<br>
+         D. Unrelated to the energy required for the <em>n</em>=3 to <em>n</em>=4 transition</p>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 1"></p>
+      <p>Explain your reasoning.</p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+
+      <h3>2. Energy of an Excitation</h3>
+      <p>Calculate the energy required to excite a hydrogen electron from <em>n</em>=2 to <em>n</em>=3.</p>
+      <p><strong>Work:</strong></p>
+      <div class="work-area"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 2"> J</p>
+
+      <h3>3. Comparing Electron Transitions</h3>
+      <p>Consider the following transitions in a hydrogen atom:</p>
+      <p>I. <em>n</em>=2&rarr;1<br>II. <em>n</em>=3&rarr;1<br>III. <em>n</em>=1&rarr;4</p>
+      <p>Which transition releases the greatest amount of energy?</p>
+      <p>A. I only<br>B. II only<br>C. III only<br>D. I and II</p>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 3"></p>
+      <p>Explain your reasoning.</p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+
+      <h3>4. Longest Wavelength</h3>
+      <p>When an electron drops to <em>n</em>=1, which transition produces the photon with the longest wavelength?</p>
+      <p><em>n</em>=<input type="text" class="blank-inline" aria-label="Student response field 4" style="min-width:80px">&rarr;<em>n</em>=1</p>
+      <p>Explain your reasoning.</p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+
+      <h3>5. Energy, Frequency, and Wavelength</h3>
+      <p>An electron in a hydrogen atom drops from <em>n</em>=3 to <em>n</em>=2.</p>
+      <p><strong>a.</strong> Is energy absorbed or released?</p>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 5" style="min-width:420px"></p>
+      <p><strong>b.</strong> Is the emitted photon&rsquo;s wavelength relatively long or short compared with a photon emitted during a <em>n</em>=2&rarr;1 transition?</p>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 6" style="min-width:420px"></p>
+      <p><strong>c.</strong> Explain your answer.</p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+
+      <h3>6. Numerical Transition Analysis</h3>
+      <p>Calculate the wavelength of light emitted when a hydrogen electron drops from <em>n</em>=3 to <em>n</em>=2.</p>
+      <p><strong>Work:</strong></p>
+      <div class="work-area"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 7"> nm</p>
+      <p><strong>Approximate color:</strong> <input type="text" class="blank-inline" aria-label="Student response field 8" style="min-width:320px"></p>
+    </section>
+
+    <section>
+      <h2>Part II: Emission Spectra</h2>
+
+      <h3>Hydrogen Emission Spectrum</h3>
+      <p>Use the simplified hydrogen spectrum below.</p>
+      <figure class="spectrum">
+        <svg viewBox="0 0 860 180" role="img" aria-labelledby="hydrogenTitle hydrogenDesc">
+          <title id="hydrogenTitle">Hydrogen emission spectrum diagram</title>
+          <desc id="hydrogenDesc">Relative intensity axis with emission lines at 410, 434, 486, and 656 nanometers labeled violet, blue-violet, blue-green, and red.</desc>
+          <line x1="80" y1="20" x2="80" y2="140" stroke="#000" stroke-width="2" />
+          <text x="18" y="25" font-size="13">Relative</text>
+          <text x="20" y="42" font-size="13">intensity</text>
+          <line x1="80" y1="140" x2="820" y2="140" stroke="#000" stroke-width="2" />
+          <line x1="210" y1="48" x2="210" y2="140" stroke="#7e57c2" stroke-width="4" />
+          <line x1="290" y1="40" x2="290" y2="140" stroke="#5c6bc0" stroke-width="4" />
+          <line x1="400" y1="34" x2="400" y2="140" stroke="#26a69a" stroke-width="4" />
+          <line x1="700" y1="28" x2="700" y2="140" stroke="#e53935" stroke-width="4" />
+          <text x="190" y="160" font-size="12">410</text>
+          <text x="270" y="160" font-size="12">434</text>
+          <text x="380" y="160" font-size="12">486</text>
+          <text x="675" y="160" font-size="12">656 nm</text>
+          <text x="173" y="176" font-size="11">violet</text>
+          <text x="245" y="176" font-size="11">blue-violet</text>
+          <text x="355" y="176" font-size="11">blue-green</text>
+          <text x="684" y="176" font-size="11">red</text>
+        </svg>
+      </figure>
+
+      <h3>Helium Emission Spectrum</h3>
+      <figure class="spectrum">
+        <svg viewBox="0 0 860 180" role="img" aria-labelledby="heliumTitle heliumDesc">
+          <title id="heliumTitle">Helium emission spectrum diagram</title>
+          <desc id="heliumDesc">Relative intensity axis with emission lines at 447, 502, 588, 668, and 706 nanometers labeled blue-violet, blue-green, yellow, red, and deep red.</desc>
+          <line x1="80" y1="20" x2="80" y2="140" stroke="#000" stroke-width="2" />
+          <text x="18" y="25" font-size="13">Relative</text>
+          <text x="20" y="42" font-size="13">intensity</text>
+          <line x1="80" y1="140" x2="820" y2="140" stroke="#000" stroke-width="2" />
+          <line x1="250" y1="42" x2="250" y2="140" stroke="#5c6bc0" stroke-width="4" />
+          <line x1="360" y1="36" x2="360" y2="140" stroke="#26a69a" stroke-width="4" />
+          <line x1="520" y1="32" x2="520" y2="140" stroke="#fbc02d" stroke-width="4" />
+          <line x1="650" y1="28" x2="650" y2="140" stroke="#e53935" stroke-width="4" />
+          <line x1="730" y1="24" x2="730" y2="140" stroke="#b71c1c" stroke-width="4" />
+          <text x="233" y="160" font-size="12">447</text>
+          <text x="343" y="160" font-size="12">502</text>
+          <text x="503" y="160" font-size="12">588</text>
+          <text x="633" y="160" font-size="12">668</text>
+          <text x="708" y="160" font-size="12">706 nm</text>
+          <text x="205" y="176" font-size="11">blue-violet</text>
+          <text x="323" y="176" font-size="11">blue-green</text>
+          <text x="504" y="176" font-size="11">yellow</text>
+          <text x="640" y="176" font-size="11">red</text>
+          <text x="705" y="176" font-size="11">deep red</text>
+        </svg>
+      </figure>
+
+      <h3>7. Spectrum Identification</h3>
+      <p>Which spectrum is represented by the first diagram?</p>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 9" style="min-width:420px"></p>
+      <p>Which spectrum is represented by the second diagram?</p>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 10" style="min-width:420px"></p>
+
+      <h3>8. Greatest Photon Energy</h3>
+      <p>Which hydrogen emission line has the greatest energy?</p>
+      <p>A. 410 nm<br>B. 434 nm<br>C. 486 nm<br>D. 656 nm</p>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 11"></p>
+      <p>Explain your reasoning using wavelength and frequency.</p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+
+      <h3>9. Lowest Photon Energy</h3>
+      <p>Which helium emission line has the lowest energy?</p>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 12"></p>
+      <p>Explain your reasoning.</p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+
+      <h3>10. Hydrogen Spectrum Calculation</h3>
+      <p>Calculate the energy of the hydrogen emission line at 656 nm.</p>
+      <p><strong>Work:</strong></p>
+      <div class="work-area"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 13"> J</p>
+
+      <h3>11. Helium Spectrum Calculation</h3>
+      <p>Calculate the frequency of the helium emission line at 588 nm.</p>
+      <p><strong>Work:</strong></p>
+      <div class="work-area"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 14"> Hz</p>
+
+      <h3>12. Identifying a Mystery Gas</h3>
+      <p>A mystery gas produces bright emission lines at: 447 nm, 502 nm, 588 nm, 668 nm, 706 nm.</p>
+      <p>Is the gas more likely hydrogen or helium?</p>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 15" style="min-width:420px"></p>
+      <p>Justify your answer using evidence from the spectra.</p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+
+      <h3>13. Mixture Spectrum</h3>
+      <p>A sample contains both hydrogen and helium. Predict how the emission spectrum of the mixture would compare with the spectra of pure hydrogen and pure helium.</p>
+      <div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div>
+    </section>
+
+    <section class="page-break">
+      <h2>Part III: Dalton&rsquo;s Atomic Theory</h2>
+
+      <h3>14. Historical Atomic Theory</h3>
+      <p>Which statement was <strong>not</strong> one of Dalton&rsquo;s original hypotheses?</p>
+      <p>A. Matter is composed of atoms.<br>
+         B. Atoms of the same element are identical in mass and properties.<br>
+         C. Atoms can be divided into protons, neutrons, and electrons.<br>
+         D. Compounds form when atoms combine in whole-number ratios.</p>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 16"></p>
+
+      <h3>15. Atomic Models</h3>
+      <p>Explain one major difference between Dalton&rsquo;s model of the atom and the modern atomic model.</p>
+      <div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div>
+    </section>
+
+    <section>
+      <h2>Part IV: Net Ionic Equations</h2>
+      <p>Write the balanced net ionic equation for each reaction. Include physical states.</p>
+
+      <h3>16. Copper(II) Iodide and Lithium Carbonate</h3>
+      <p>Aqueous copper(II) iodide and lithium carbonate are mixed.</p>
+      <p><strong>Net ionic equation:</strong></p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+
+      <h3>17. Lead(II) Nitrate and Potassium Iodide</h3>
+      <p>Aqueous lead(II) nitrate and potassium iodide are mixed.</p>
+      <p><strong>Net ionic equation:</strong></p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+
+      <h3>18. Silver Nitrate and Magnesium Iodide</h3>
+      <p>The following reaction occurs:</p>
+      <p class="equation">2AgNO<sub>3</sub>(aq) + MgI<sub>2</sub>(aq) &rarr; Mg(NO<sub>3</sub>)<sub>2</sub>(aq) + 2AgI(s)</p>
+      <p><strong>Net ionic equation:</strong></p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+
+      <h3>19. Barium Nitrate and Magnesium Sulfate</h3>
+      <p>The following reaction occurs:</p>
+      <p class="equation">Ba(NO<sub>3</sub>)<sub>2</sub>(aq) + MgSO<sub>4</sub>(aq) &rarr; Mg(NO<sub>3</sub>)<sub>2</sub>(aq) + BaSO<sub>4</sub>(s)</p>
+      <p><strong>Net ionic equation:</strong></p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+    </section>
+
+    <section>
+      <h2>Part V: Precipitation Stoichiometry</h2>
+
+      <h3>20. Aluminum Chloride Analysis</h3>
+      <p>A 60.00 mL sample of aluminum chloride solution is treated with excess sodium hydroxide. The aluminum hydroxide precipitate has a mass of 0.780 g.</p>
+      <p>The reaction is:</p>
+      <p class="equation">AlCl<sub>3</sub>(aq) + 3NaOH(aq) &rarr; Al(OH)<sub>3</sub>(s) + 3NaCl(aq)</p>
+      <p>Calculate the molarity of the original AlCl<sub>3</sub> solution.</p>
+      <p><strong>Work:</strong></p>
+      <div class="work-area"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 17"> M</p>
+
+      <h3>21. Zinc Nitrate Analysis</h3>
+      <p>A 45.00 mL sample of zinc nitrate solution reacts with excess sodium phosphate. The zinc phosphate precipitate has a mass of 0.579 g.</p>
+      <p>The reaction is:</p>
+      <p class="equation">3Zn(NO<sub>3</sub>)<sub>2</sub>(aq) + 2Na<sub>3</sub>PO<sub>4</sub>(aq) &rarr; Zn<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>(s) + 6NaNO<sub>3</sub>(aq)</p>
+      <p>Calculate the molarity of the original Zn(NO<sub>3</sub>)<sub>2</sub> solution.</p>
+      <p><strong>Work:</strong></p>
+      <div class="work-area"><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div><div class="answer-line"></div></div>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 18"> M</p>
+    </section>
+
+    <section class="page-break">
+      <h2>Part VI: AP-Style Free Response</h2>
+
+      <h3>22. Connecting Spectra and Energy</h3>
+      <p>A student observes that hydrogen produces several bright lines rather than a continuous spectrum.</p>
+      <p><strong>a.</strong> Explain why the hydrogen spectrum contains discrete lines.</p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+      <p><strong>b.</strong> Explain how the spectrum supports the idea that electron energies are quantized.</p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+      <p><strong>c.</strong> What happens to photon energy when the emitted wavelength decreases?</p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+
+      <h3>23. Experimental Analysis</h3>
+      <p>Two unknown gases produce the following emission lines:</p>
+      <table>
+        <thead>
+          <tr><th>Gas</th><th>Emission Lines</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>X</td><td>410 nm, 434 nm, 486 nm, 656 nm</td></tr>
+          <tr><td>Y</td><td>447 nm, 502 nm, 588 nm, 668 nm, 706 nm</td></tr>
+        </tbody>
+      </table>
+      <p><strong>a.</strong> Identify Gas X and Gas Y.</p>
+      <p>Gas X: <input type="text" class="blank-inline" aria-label="Student response field 19" style="min-width:220px"></p>
+      <p>Gas Y: <input type="text" class="blank-inline" aria-label="Student response field 20" style="min-width:220px"></p>
+      <p><strong>b.</strong> Which gas produces the highest-energy observed photon?</p>
+      <p><strong>Answer:</strong> <input type="text" class="blank-inline" aria-label="Student response field 21" style="min-width:220px"></p>
+      <p><strong>c.</strong> Justify your answer.</p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+      <p><strong>d.</strong> Explain how emission spectroscopy could be used to identify elements in a star.</p>
+      <div class="answer-line"></div><div class="answer-line"></div>
+    </section>
+
+    <section class="teacher-key page-break">
+      <h2>Teacher Answer Key</h2>
+      <ol>
+        <li><strong>C. Greater than.</strong> The energy levels become closer together as <em>n</em> increases, so the <em>n</em>=2&rarr;3 transition requires more energy than <em>n</em>=3&rarr;4.</li>
+        <li>2.18 &times; 10<sup>&minus;19</sup> J</li>
+        <li><strong>B. II only.</strong> The <em>n</em>=3&rarr;1 transition has the largest energy decrease. Transition III is an absorption process.</li>
+        <li><em>n</em>=2. The <em>n</em>=2&rarr;1 transition has the smallest energy change among transitions ending at <em>n</em>=1, so it emits the longest wavelength.</li>
+        <li>Energy is released. The <em>n</em>=3&rarr;2 transition has a smaller energy difference than the <em>n</em>=2&rarr;1 transition, so it produces a longer-wavelength photon.</li>
+        <li>Approximately 656 nm; red light.</li>
+        <li>First spectrum: hydrogen. Second spectrum: helium.</li>
+        <li><strong>A. 410 nm.</strong> The shortest wavelength has the greatest frequency and energy.</li>
+        <li>706 nm. It is the longest wavelength listed.</li>
+        <li>3.03 &times; 10<sup>&minus;19</sup> J</li>
+        <li>5.10 &times; 10<sup>14</sup> Hz</li>
+        <li>Helium. The listed wavelengths match the helium spectrum.</li>
+        <li>The mixture would show the combined emission lines of both hydrogen and helium.</li>
+        <li><strong>C.</strong> Atoms can be divided into protons, neutrons, and electrons.</li>
+        <li>Dalton proposed that atoms were indivisible. The modern model shows that atoms contain subatomic particles and have an internal structure.</li>
+        <li>Cu<sup>2+</sup>(aq) + CO<sub>3</sub><sup>2&minus;</sup>(aq) &rarr; CuCO<sub>3</sub>(s)</li>
+        <li>Pb<sup>2+</sup>(aq) + 2I<sup>&minus;</sup>(aq) &rarr; PbI<sub>2</sub>(s)</li>
+        <li>Ag<sup>+</sup>(aq) + I<sup>&minus;</sup>(aq) &rarr; AgI(s)</li>
+        <li>Ba<sup>2+</sup>(aq) + SO<sub>4</sub><sup>2&minus;</sup>(aq) &rarr; BaSO<sub>4</sub>(s)</li>
+        <li>0.167 M</li>
+        <li>0.100 M</li>
+        <li>Only specific wavelengths are emitted because electrons can occupy only specific energy levels. Each line corresponds to a specific energy difference between allowed levels. Decreasing wavelength means increasing frequency and increasing photon energy.</li>
+        <li>Gas X: hydrogen. Gas Y: helium. Gas X produces the highest-energy observed photon because 410 nm is shorter than Gas Y&rsquo;s shortest listed wavelength, 447 nm. Emission spectra can be compared with known spectra to identify elements in stars.</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>
