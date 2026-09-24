@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AP Chemistry: Beer's Law Comprehensive Assignment</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1f2933;
+      --muted: #52606d;
+      --rule: #bcccdc;
+      --paper: #ffffff;
+      --panel: #f8fafc;
+      --accent: #1d4ed8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.55;
+      color: var(--ink);
+      background: #e5e7eb;
+      padding: 2rem 1rem;
+    }
+
+    main {
+      max-width: 8.5in;
+      margin: 0 auto;
+      background: var(--paper);
+      padding: 0.75in;
+      box-shadow: 0 0.5rem 1.5rem rgba(15, 23, 42, 0.12);
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.2;
+      margin: 0 0 0.65rem;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 1.75rem;
+      border-top: 2px solid var(--rule);
+      padding-top: 1rem;
+    }
+
+    h3 {
+      font-size: 1.08rem;
+      margin-top: 1.25rem;
+    }
+
+    p,
+    ul,
+    table,
+    figure,
+    pre {
+      margin: 0 0 1rem;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    li + li {
+      margin-top: 0.2rem;
+    }
+
+    header {
+      margin-bottom: 1.25rem;
+    }
+
+    .student-line {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .rule {
+      border: 0;
+      border-top: 1px solid var(--rule);
+      margin: 1rem 0 1.5rem;
+    }
+
+    .equation-block,
+    .given,
+    .solution,
+    .answer-box,
+    .note,
+    .graph-box {
+      background: var(--panel);
+      border: 1px solid var(--rule);
+      border-radius: 0.4rem;
+      padding: 0.85rem 1rem;
+    }
+
+    .equation-block {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .equation-block p:last-child,
+    .given p:last-child,
+    .solution p:last-child,
+    .answer-box p:last-child,
+    .note p:last-child,
+    .graph-box pre:last-child {
+      margin-bottom: 0;
+    }
+
+    .problem {
+      margin-bottom: 1.5rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .solution {
+      margin-top: 0.75rem;
+    }
+
+    .answer-box {
+      margin-top: 0.75rem;
+      font-weight: 700;
+    }
+
+    .blank-line {
+      display: inline-block;
+      min-width: 11rem;
+      border-bottom: 1px solid currentColor;
+      transform: translateY(-0.1rem);
+    }
+
+    .wide-blank {
+      display: block;
+      min-height: 1.5rem;
+      border-bottom: 1px solid var(--ink);
+      margin-top: 0.5rem;
+    }
+
+    .wide-blank + .wide-blank {
+      margin-top: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--rule);
+      padding: 0.55rem 0.65rem;
+      vertical-align: top;
+    }
+
+    th {
+      background: #eaf2ff;
+      text-align: left;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      font-family: "Courier New", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .page-break {
+      break-before: page;
+      page-break-before: always;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-weight: 600;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+
+      main {
+        max-width: none;
+        margin: 0;
+        box-shadow: none;
+        padding: 0.5in;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AP Chemistry: Beer's Law Comprehensive Assignment</h1>
+      <p class="student-line">
+        <span>Name: _________________</span>
+        <span>Date: _________________</span>
+        <span>Period: _____</span>
+      </p>
+    </header>
+
+    <hr class="rule">
+
+    <section aria-labelledby="background-information">
+      <h2 id="background-information">Background Information</h2>
+      <p><strong>Beer's Law</strong> describes the relationship between the concentration of a solution and the amount of light it absorbs:</p>
+      <div class="equation-block" role="img" aria-label="Beer's Law equation: A equals epsilon b c">
+        <p>A = εbc</p>
+      </div>
+      <ul>
+        <li><strong>A</strong> = Absorbance (unitless, range 0-4)</li>
+        <li><strong>ε</strong> = Molar absorptivity (L·mol<sup>−1</sup>·cm<sup>−1</sup>)</li>
+        <li><strong>b</strong> = Path length of light through the solution (cm)</li>
+        <li><strong>c</strong> = Molar concentration of the absorbing species (mol/L)</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="part-1">
+      <h2 id="part-1">Part 1: Calculation Problems - Solving for Absorbance (A)</h2>
+      <p><strong>Use Beer's Law to calculate absorbance for the following scenarios:</strong></p>
+
+      <article class="problem" aria-labelledby="problem-1-1">
+        <h3 id="problem-1-1">Problem 1.1</h3>
+        <p>A solution of potassium permanganate (KMnO<sub>4</sub>) has a molar absorptivity of 2,600 L·mol<sup>−1</sup>·cm<sup>−1</sup> at 525 nm. The solution has a concentration of 0.0050 M and is measured in a cuvette with a path length of 1.0 cm.</p>
+        <p><strong>Calculate the absorbance (A).</strong></p>
+        <div class="given">
+          <p><strong>Given:</strong></p>
+          <ul>
+            <li>ε = 2,600 L·mol<sup>−1</sup>·cm<sup>−1</sup></li>
+            <li>c = 0.0050 M</li>
+            <li>b = 1.0 cm</li>
+          </ul>
+        </div>
+        <div class="solution"><p><strong>Solution:</strong></p><p>A = εbc = </p></div>
+        <div class="answer-box"><p>Answer: A = _____________</p></div>
+      </article>
+
+      <article class="problem" aria-labelledby="problem-1-2">
+        <h3 id="problem-1-2">Problem 1.2</h3>
+        <p>A blue dye solution (λ = 600 nm) has the following properties:</p>
+        <ul>
+          <li>Molar absorptivity: 8,500 L·mol<sup>−1</sup>·cm<sup>−1</sup></li>
+          <li>Concentration: 0.00025 M</li>
+          <li>Path length: 1.0 cm</li>
+        </ul>
+        <p><strong>Calculate the absorbance.</strong></p>
+        <div class="given">
+          <p><strong>Given:</strong></p>
+          <ul>
+            <li>ε = 8,500 L·mol<sup>−1</sup>·cm<sup>−1</sup></li>
+            <li>c = 0.00025 M</li>
+            <li>b = 1.0 cm</li>
+          </ul>
+        </div>
+        <div class="solution"><p><strong>Solution:</strong></p><p>A = </p></div>
+        <div class="answer-box"><p>Answer: A = _____________</p></div>
+      </article>
+
+      <article class="problem" aria-labelledby="problem-1-3">
+        <h3 id="problem-1-3">Problem 1.3</h3>
+        <p>A solution containing Fe<sup>3+</sup> ions complexed with thiocyanate (SCN<sup>−</sup>) is analyzed:</p>
+        <ul>
+          <li>Molar absorptivity: 7,000 L·mol<sup>−1</sup>·cm<sup>−1</sup></li>
+          <li>Concentration: 0.000100 M</li>
+          <li>Path length: 2.0 cm (thicker cuvette)</li>
+        </ul>
+        <p><strong>Calculate the absorbance.</strong></p>
+        <div class="given">
+          <p><strong>Given:</strong></p>
+          <ul>
+            <li>ε = 7,000 L·mol<sup>−1</sup>·cm<sup>−1</sup></li>
+            <li>c = 0.000100 M</li>
+            <li>b = 2.0 cm</li>
+          </ul>
+        </div>
+        <div class="solution"><p><strong>Solution:</strong></p><p>A = </p></div>
+        <div class="answer-box"><p>Answer: A = _____________</p></div>
+      </article>
+    </section>
+
+    <section aria-labelledby="part-2">
+      <h2 id="part-2">Part 2: Calculation Problems - Solving for Concentration (c)</h2>
+      <p><strong>Rearrange Beer's Law to solve for concentration: c = A/(εb)</strong></p>
+
+      <article class="problem" aria-labelledby="problem-2-1">
+        <h3 id="problem-2-1">Problem 2.1</h3>
+        <p>A spectrophotometer measures an absorbance of 0.385 for a permanganate solution measured at 525 nm using a 1.0 cm cuvette. The molar absorptivity for permanganate at this wavelength is 2,600 L·mol<sup>−1</sup>·cm<sup>−1</sup>.</p>
+        <p><strong>Calculate the molar concentration of the permanganate solution.</strong></p>
+        <div class="given">
+          <p><strong>Given:</strong></p>
+          <ul>
+            <li>A = 0.385</li>
+            <li>ε = 2,600 L·mol<sup>−1</sup>·cm<sup>−1</sup></li>
+            <li>b = 1.0 cm</li>
+          </ul>
+        </div>
+        <div class="solution"><p><strong>Solution:</strong></p><p>c = A/(εb) = </p></div>
+        <div class="answer-box"><p>Answer: c = _____________ M</p></div>
+      </article>
+
+      <article class="problem" aria-labelledby="problem-2-2">
+        <h3 id="problem-2-2">Problem 2.2</h3>
+        <p>A student measures the absorbance of a dye solution and obtains A = 0.520. The molar absorptivity is 8,500 L·mol<sup>−1</sup>·cm<sup>−1</sup> and the path length is 1.0 cm.</p>
+        <p><strong>Calculate the concentration of the dye.</strong></p>
+        <div class="given">
+          <p><strong>Given:</strong></p>
+          <ul>
+            <li>A = 0.520</li>
+            <li>ε = 8,500 L·mol<sup>−1</sup>·cm<sup>−1</sup></li>
+            <li>b = 1.0 cm</li>
+          </ul>
+        </div>
+        <div class="solution"><p><strong>Solution:</strong></p><p>c = </p></div>
+        <div class="answer-box"><p>Answer: c = _____________ M</p></div>
+      </article>
+
+      <article class="problem" aria-labelledby="problem-2-3">
+        <h3 id="problem-2-3">Problem 2.3</h3>
+        <p>An absorbance reading of 0.214 is obtained for an iron(III)-thiocyanate complex solution. The molar absorptivity is 7,000 L·mol<sup>−1</sup>·cm<sup>−1</sup> and the path length is 2.0 cm.</p>
+        <p><strong>Calculate the concentration of the complex.</strong></p>
+        <div class="given">
+          <p><strong>Given:</strong></p>
+          <ul>
+            <li>A = 0.214</li>
+            <li>ε = 7,000 L·mol<sup>−1</sup>·cm<sup>−1</sup></li>
+            <li>b = 2.0 cm</li>
+          </ul>
+        </div>
+        <div class="solution"><p><strong>Solution:</strong></p><p>c = </p></div>
+        <div class="answer-box"><p>Answer: c = _____________ M</p></div>
+      </article>
+    </section>
+
+    <section aria-labelledby="part-3">
+      <h2 id="part-3">Part 3: Calculation Problems - Solving for Molar Absorptivity (ε)</h2>
+      <p><strong>Rearrange Beer's Law to solve for molar absorptivity: ε = A/(bc)</strong></p>
+
+      <article class="problem" aria-labelledby="problem-3-1">
+        <h3 id="problem-3-1">Problem 3.1</h3>
+        <p>A solution with a known concentration of 0.0100 M has an absorbance of 0.450 when measured in a 1.0 cm cuvette at 480 nm.</p>
+        <p><strong>Calculate the molar absorptivity at this wavelength.</strong></p>
+        <div class="given">
+          <p><strong>Given:</strong></p>
+          <ul>
+            <li>A = 0.450</li>
+            <li>c = 0.0100 M</li>
+            <li>b = 1.0 cm</li>
+          </ul>
+        </div>
+        <div class="solution"><p><strong>Solution:</strong></p><p>ε = A/(bc) = </p></div>
+        <div class="answer-box"><p>Answer: ε = _____________ L·mol<sup>−1</sup>·cm<sup>−1</sup></p></div>
+      </article>
+
+      <article class="problem" aria-labelledby="problem-3-2">
+        <h3 id="problem-3-2">Problem 3.2</h3>
+        <p>A 0.000250 M solution of a purple dye has an absorbance of 0.680 when measured with a 1.0 cm path length.</p>
+        <p><strong>Calculate the molar absorptivity.</strong></p>
+        <div class="given">
+          <p><strong>Given:</strong></p>
+          <ul>
+            <li>A = 0.680</li>
+            <li>c = 0.000250 M</li>
+            <li>b = 1.0 cm</li>
+          </ul>
+        </div>
+        <div class="solution"><p><strong>Solution:</strong></p><p>ε = </p></div>
+        <div class="answer-box"><p>Answer: ε = _____________ L·mol<sup>−1</sup>·cm<sup>−1</sup></p></div>
+      </article>
+    </section>
+
+    <section aria-labelledby="part-4">
+      <h2 id="part-4">Part 4: Path Length Variations</h2>
+
+      <article class="problem" aria-labelledby="problem-4-1">
+        <h3 id="problem-4-1">Problem 4.1</h3>
+        <p>The same solution is measured in two different cuvettes. In the first cuvette (b<sub>1</sub> = 1.0 cm), the absorbance is 0.300.</p>
+        <p><strong>What will the absorbance be if the same solution is measured in a 5.0 cm cuvette?</strong><br>(Assume ε and c remain constant)</p>
+        <div class="given">
+          <p><strong>Given:</strong></p>
+          <ul>
+            <li>A<sub>1</sub> = 0.300 (with b<sub>1</sub> = 1.0 cm)</li>
+            <li>b<sub>2</sub> = 5.0 cm</li>
+            <li>ε and c are unchanged</li>
+          </ul>
+        </div>
+        <div class="solution">
+          <p><strong>Solution:</strong></p>
+          <p>Since A = εbc, and ε and c are constant:</p>
+          <p>A<sub>1</sub>/A<sub>2</sub> = b<sub>1</sub>/b<sub>2</sub></p>
+        </div>
+        <div class="answer-box"><p>Answer: A<sub>2</sub> = _____________</p></div>
+      </article>
+
+      <article class="problem" aria-labelledby="problem-4-2">
+        <h3 id="problem-4-2">Problem 4.2</h3>
+        <p>A student wants to measure a solution's absorbance but finds it too concentrated, resulting in a reading of 1.850 (above the typical linear range of 0.0-1.0). They dilute the solution into a cuvette with a smaller path length.</p>
+        <p>If the original measurement used a 2.0 cm cuvette, <strong>what path length cuvette should they use to get an absorbance reading around 0.500?</strong></p>
+        <div class="given">
+          <p><strong>Given:</strong></p>
+          <ul>
+            <li>A<sub>1</sub> = 1.850 (with b<sub>1</sub> = 2.0 cm)</li>
+            <li>A<sub>2</sub> = 0.500 (desired)</li>
+            <li>ε and c are unchanged</li>
+          </ul>
+        </div>
+        <div class="solution">
+          <p><strong>Solution:</strong></p>
+          <p>A<sub>1</sub>/A<sub>2</sub> = b<sub>1</sub>/b<sub>2</sub></p>
+          <p>b<sub>2</sub> = </p>
+        </div>
+        <div class="answer-box"><p>Answer: b<sub>2</sub> = _____________ cm</p></div>
+      </article>
+    </section>
+
+    <section aria-labelledby="part-5">
+      <h2 id="part-5">Part 5: Concentration Dilution Series</h2>
+      <p>A student prepares a dilution series of a dye solution. The original (stock) solution has a concentration of 0.100 M.</p>
+
+      <article class="problem" aria-labelledby="problem-5-1">
+        <h3 id="problem-5-1">Problem 5.1</h3>
+        <p><strong>Calculate the absorbance for each dilution:</strong></p>
+        <ul>
+          <li>Molar absorptivity: ε = 5,000 L·mol<sup>−1</sup>·cm<sup>−1</sup></li>
+          <li>Path length: b = 1.0 cm</li>
+        </ul>
+        <table>
+          <caption>Dilution series absorbance table</caption>
+          <thead>
+            <tr>
+              <th scope="col">Dilution</th>
+              <th scope="col">Concentration (M)</th>
+              <th scope="col">Absorbance (A)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1:1 (stock)</td><td>0.100</td><td></td></tr>
+            <tr><td>1:2</td><td>0.0500</td><td></td></tr>
+            <tr><td>1:5</td><td>0.0200</td><td></td></tr>
+            <tr><td>1:10</td><td>0.0100</td><td></td></tr>
+            <tr><td>1:20</td><td>0.00500</td><td></td></tr>
+          </tbody>
+        </table>
+        <div class="solution"><p><strong>Show one calculation:</strong></p><p>A = </p></div>
+      </article>
+
+      <article class="problem" aria-labelledby="problem-5-2">
+        <h3 id="problem-5-2">Problem 5.2</h3>
+        <p><strong>Plot the absorbance vs. concentration data below.</strong> This should be a linear relationship (Beer's Law is linear).</p>
+        <figure class="graph-box">
+          <figcaption>Absorbance vs. Concentration</figcaption>
+          <pre aria-label="Blank absorbance versus concentration plotting grid">     |
+     |
+0.4  |
+     |
+0.3  |
+     |
+0.2  |
+     |
+0.1  |
+     |
+0.0  |__________________
+     0    0.02   0.04   0.06   0.08   0.10
+              Concentration (M)</pre>
+        </figure>
+        <p><strong>What is the relationship between concentration and absorbance?</strong></p>
+        <span class="wide-blank" aria-hidden="true"></span>
+      </article>
+    </section>
+
+    <section aria-labelledby="part-6">
+      <h2 id="part-6">Part 6: Real-World Application - Vitamin Analysis</h2>
+      <p>A pharmaceutical company uses spectrophotometry to determine the concentration of Vitamin B<sub>12</sub> in their multivitamin tablets. The molar absorptivity of B<sub>12</sub> at 361 nm is 35,300 L·mol<sup>−1</sup>·cm<sup>−1</sup>.</p>
+
+      <article class="problem" aria-labelledby="problem-6-1">
+        <h3 id="problem-6-1">Problem 6.1</h3>
+        <p>A standard solution containing 1.50 × 10<sup>−5</sup> M B<sub>12</sub> has an absorbance of 0.530 when measured in a 1.0 cm cuvette.</p>
+        <p><strong>Use this information to verify or calculate the molar absorptivity of B<sub>12</sub>.</strong></p>
+        <div class="given">
+          <p><strong>Given:</strong></p>
+          <ul>
+            <li>A = 0.530</li>
+            <li>c = 1.50 × 10<sup>−5</sup> M</li>
+            <li>b = 1.0 cm</li>
+          </ul>
+        </div>
+        <div class="solution"><p><strong>Solution:</strong></p><p>ε = </p></div>
+        <div class="answer-box"><p>Answer: ε = _____________ L·mol<sup>−1</sup>·cm<sup>−1</sup></p></div>
+      </article>
+
+      <article class="problem" aria-labelledby="problem-6-2">
+        <h3 id="problem-6-2">Problem 6.2</h3>
+        <p>A tablet sample is dissolved and diluted to 100 mL with distilled water. The solution is then further diluted 1:100, and this final solution shows an absorbance of 0.245 in a 1.0 cm cuvette at 361 nm.</p>
+        <p><strong>Calculate the concentration of B<sub>12</sub> in the final diluted solution using the literature value for molar absorptivity (ε = 35,300 L·mol<sup>−1</sup>·cm<sup>−1</sup>).</strong></p>
+        <div class="given">
+          <p><strong>Given:</strong></p>
+          <ul>
+            <li>A = 0.245</li>
+            <li>ε = 35,300 L·mol<sup>−1</sup>·cm<sup>−1</sup></li>
+            <li>b = 1.0 cm</li>
+          </ul>
+        </div>
+        <div class="solution"><p><strong>Solution:</strong></p><p>c = </p></div>
+        <div class="answer-box"><p>Answer: c = _____________ M (in the diluted solution)</p></div>
+      </article>
+
+      <article class="problem" aria-labelledby="problem-6-3">
+        <h3 id="problem-6-3">Problem 6.3</h3>
+        <p><strong>If the final solution was diluted 1:100 from the original tablet solution, what was the concentration of B<sub>12</sub> in the original 100 mL sample?</strong></p>
+        <p>(Hint: Work backwards through the dilution)</p>
+        <div class="answer-box"><p>Answer: c (original) = _____________ M</p></div>
+      </article>
+    </section>
+
+    <section aria-labelledby="part-7">
+      <h2 id="part-7">Part 7: Critical Thinking Questions</h2>
+
+      <article class="problem" aria-labelledby="question-7-1">
+        <h3 id="question-7-1">Question 7.1</h3>
+        <p><strong>Why is it important that Beer's Law be applied only to solutions with absorbance values between 0.0 and 1.0?</strong></p>
+        <span class="wide-blank" aria-hidden="true"></span>
+        <span class="wide-blank" aria-hidden="true"></span>
+        <span class="wide-blank" aria-hidden="true"></span>
+      </article>
+
+      <article class="problem" aria-labelledby="question-7-2">
+        <h3 id="question-7-2">Question 7.2</h3>
+        <p><strong>Two solutions have identical molar concentrations but different molar absorptivities (ε values). Which one will have a higher absorbance when measured under identical conditions (same path length and wavelength)? Explain.</strong></p>
+        <span class="wide-blank" aria-hidden="true"></span>
+        <span class="wide-blank" aria-hidden="true"></span>
+        <span class="wide-blank" aria-hidden="true"></span>
+      </article>
+
+      <article class="problem" aria-labelledby="question-7-3">
+        <h3 id="question-7-3">Question 7.3</h3>
+        <p><strong>A student measures a solution's absorbance as 2.850, which is above the linear range. Name two ways they could modify their measurement to get a valid absorbance reading between 0.0 and 1.0.</strong></p>
+        <p>Method 1:</p>
+        <span class="wide-blank" aria-hidden="true"></span>
+        <p>Method 2:</p>
+        <span class="wide-blank" aria-hidden="true"></span>
+      </article>
+
+      <article class="problem">
+        <h3 id="question-7-4">Question 7.4</h3>
+        <p><strong>Explain why the molar absorptivity (ε) is specific to both the wavelength of light AND the chemical species being measured.</strong></p>
+        <span class="wide-blank" aria-hidden="true"></span>
+        <span class="wide-blank" aria-hidden="true"></span>
+        <span class="wide-blank" aria-hidden="true"></span>
+      </article>
+    </section>
+
+    <section class="page-break" aria-labelledby="answer-key">
+      <h2 id="answer-key">Answer Key (For Instructor Use Only)</h2>
+      <table>
+        <caption>Instructor answer key</caption>
+        <thead>
+          <tr>
+            <th scope="col">Problem</th>
+            <th scope="col">Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1.1</td><td>A = 0.013</td></tr>
+          <tr><td>1.2</td><td>A = 2.125</td></tr>
+          <tr><td>1.3</td><td>A = 0.0014</td></tr>
+          <tr><td>2.1</td><td>c = 1.48 × 10<sup>−4</sup> M</td></tr>
+          <tr><td>2.2</td><td>c = 6.12 × 10<sup>−5</sup> M</td></tr>
+          <tr><td>2.3</td><td>c = 1.53 × 10<sup>−5</sup> M</td></tr>
+          <tr><td>3.1</td><td>ε = 45 L·mol<sup>−1</sup>·cm<sup>−1</sup></td></tr>
+          <tr><td>3.2</td><td>ε = 2,720 L·mol<sup>−1</sup>·cm<sup>−1</sup></td></tr>
+          <tr><td>4.1</td><td>A<sub>2</sub> = 1.500</td></tr>
+          <tr><td>4.2</td><td>b<sub>2</sub> = 0.54 cm</td></tr>
+          <tr><td>5.1</td><td>0.500, 0.250, 0.100, 0.050, 0.025</td></tr>
+          <tr><td>6.1</td><td>ε ≈ 35,333 L·mol<sup>−1</sup>·cm<sup>−1</sup> (close to literature value)</td></tr>
+          <tr><td>6.2</td><td>c = 6.94 × 10<sup>−6</sup> M</td></tr>
+          <tr><td>6.3</td><td>c (original) = 6.94 × 10<sup>−4</sup> M</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      <p>Total Points: _____ / 100</p>
+      <p>Student Signature: _________________ <span class="muted">Date:</span> _________</p>
+    </footer>
+  </main>
+</body>
+</html>
